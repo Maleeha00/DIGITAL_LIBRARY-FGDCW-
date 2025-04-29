@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background: rgba(245, 245, 245, 0.4);
+
+            background-size: cover;
+            background-position: center;
+        }
+        .navbar {
+            margin-bottom: 20px;
+        }
+        .card {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Library Management System (LMS)</a>
+            <span class="navbar-text text-white"><strong>Welcome: <span id="username">User</span></strong></span>
+            <span class="navbar-text text-white ml-3"><strong>Email: <span id="useremail">user@example.com</span></strong></span>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown">My Profile</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">View Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Edit Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Change Password</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card bg-light">
+                    <div class="card-header">Book Issued</div>
+                    <div class="card-body">
+                        <p class="card-text">No of books issued: <span id="bookCount">0</span></p>
+                        <a class="btn btn-success" href="#">View Issued Books</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simulating user data retrieval
+        document.getElementById("username").innerText = "Maleeha Rajput";
+        document.getElementById("useremail").innerText = "maleeharajput@example.com";
+        document.getElementById("bookCount").innerText = "3"; // Example count
+    </script>
+</body>
+</html>

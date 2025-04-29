@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Signup Form</title>
+  <style>
+    body, h2, label, input, select, button {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') no-repeat left center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: flex-start; /* Aligns content to the left */
+      align-items: flex-start;
+      height: 100vh;
+      padding: 80px 0 0 60px; /* Adds space from left edge */
+    }
+    .container {
+      background: rgba(255, 248, 240, 0.95);
+      padding: 25px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+      width: 340px;
+    }
+    .container h2 {
+      margin-bottom: 20px;
+      color: #5C4033;
+      text-align: center;
+    }
+    form label {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 4px;
+      display: block;
+      text-align: left;
+    }
+    form input, form select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box; /* Makes sure padding and borders are included in the width */
+    }
+    input::placeholder {
+      color: #999;
+    }
+    .error {
+      color: red;
+      font-size: 12px;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+    .success {
+      color: green;
+      font-size: 14px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    button {
+      background-color: #A0522D;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #8B4513;
+    }
+    .password-container {
+      position: relative;
+    }
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>CREATE ACCOUNT</h2>
+    <form id="signupForm">
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" required />
+      <div class="error" id="usernameError"></div>
+
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" placeholder="username@gmail.com" required />
+      <div class="error" id="emailError"></div>
+
+      <label for="password">Password</label>
+      <div class="password-container">
+        <input type="password" name="password" id="password" required />
+        <span class="toggle-password" onclick="togglePassword('password')">👁</span>
+      </div>
+      <div class="error" id="passwordError"></div>
+
+      <label for="confirmPassword">Confirm Password</label>
+      <div class="password-container">
+        <input type="password" name="confirmPassword" id="confirmPassword" required />
+        <span class="toggle-password" onclick="togglePassword('confirmPassword')">👁</span>
+      </div>
+      <div class="error" id="confirmPasswordError"></div>
+
+      <label for="category">Category</label>
+      <select name="category" id="category" required>
+        <option value="">Select Category</option>
+        <option value="student">Student</option>
+        <option value="faculty">Faculty</option>
+      </select>
+      <div class="error" id="categoryError"></div>
+
+      <button type="submit">Submit</button>
+      <div id="formSuccess" class="success"></div>
+    </form>
+  </div>
+
+  <script>
+    function togglePassword(id) {
+      const input = document.getElementById(id);
+      const icon = input.nextElementSibling;
+      if (input.type === "password") {
+        input.type = "text";
+        icon.textContent = "🙈";
+      } else {
+        input.type = "password";
+        icon.textContent = "👁";
+      }
+    }
+
+    document.getElementById("signupForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      document.getElementById("formSuccess").textContent = "";
+      ["username", "email", "password", "confirmPassword", "category"].forEach(id => {
+        document.getElementById(id + "Error").textContent = "";
+      });
+
+      let username = document.getElementById("username").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let password = document.getElementById("password").value;
+      let confirmPassword = document.getElementById("confirmPassword").value;
+      let category = document.getElementById("category").value;
+
+      let isValid = true;
+
+      if (username.length < 3) {
+        document.getElementById("usernameError").textContent = "Username must be at least 3 characters.";
+        isValid = false;
+      }
+
+      if (!/^\S+@\S+\.\S+$/.test(email)) {
+        document.getElementById("emailError").textContent = "Invalid email format.";
+        isValid = false;
+      }
+
+      if (password.length < 6) {
+        document.getElementById("passwordError").textContent = "Password must be at least 6 characters.";
+        isValid = false;
+      }
+
+      if (confirmPassword !== password) {
+        document.getElementById("confirmPasswordError").textContent = "Passwords do not match.";
+        isValid = false;
+      }
+
+      if (!category) {
+        document.getElementById("categoryError").textContent = "Please select a category.";
+        isValid = false;
+      }
+
+      if (isValid) {
+        document.getElementById("formSuccess").textContent = "Account created successfully! (Note: No data is saved)";
+        document.getElementById("signupForm").reset();
+      }
+    });
+  </script>
+</body>
+</html>

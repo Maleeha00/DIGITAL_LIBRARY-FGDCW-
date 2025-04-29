@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background: rgba(245, 245, 245, 0.4);
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+            margin-top: 20px;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h4 class="text-center">Edit Profile</h4>
+        <form onsubmit="return saveProfile();">
+            <div class="form-group">
+                <label>Name:</label>
+                <input type="text" class="form-control" value="John Doe" required>
+            </div>
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" class="form-control" value="johndoe@example.com" required>
+            </div>
+            <div class="form-group">
+                <label>Student ID:</label>
+                <input type="text" class="form-control" value="UNI-123456" required>
+            </div>
+            <div class="form-group">
+                <label>Department:</label>
+                <input type="text" class="form-control" value="Computer Science" required>
+            </div>
+            <div class="form-group">
+                <label>Enrollment Year:</label>
+                <input type="text" class="form-control" value="2021" required>
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Save Changes</button>
+        </form>
+    </div>
+
+    <script>
+        function saveProfile() {
+            alert("Profile updated successfully!\nYour university details have been saved in the Digital Library System.");
+            return false; // Prevent actual form submission (no backend)
+        }
+    </script>
+</body>
+</html>

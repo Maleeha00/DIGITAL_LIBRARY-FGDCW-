@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+
+  <!-- Internal CSS -->
+  <style>
+    body {
+      background-image: url('bg.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .div1 {
+      height: 400px;
+      width: 400px;
+      display: flex;
+    }
+
+    .div2 {
+      height: 400px;
+      width: 700px;
+      display: flex;
+    }
+
+    .skin-navbar {
+      background-color: #ffffff;
+    }
+
+    .navbar-brand img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+
+    .navbar-brand span {
+      font-family: 'Pacifico', cursive;
+      font-size: 24px;
+    }
+
+    .nav-link {
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar (White Navbar) -->
+  <nav class="navbar navbar-expand-lg skin-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center text-dark" href="#">
+        <img src="log.png" alt="Logo" />
+        <span>Digital Library</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto me-5">
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="login.html">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="about.html">About Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="row">
+
+      <!-- Side bar -->
+      <div class="div1">
+        <div class="container bg-light p-4">
+          <h5>Today's Quote</h5>
+          <p id="quote"></p>
+          <p><b id="author"></b></p>
+          <p><b>Today's Date:</b> <span id="date"></span></p>
+          <p><b>Today's Time:</b> <span id="time"></span></p>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="div2">
+        <div class="container bg-light p-4">
+          <form onsubmit="return validateLogin(event)">
+            <div class="mb-4">
+              <h3 class="text-center">Login Form</h3>
+              <label for="emailInput" class="form-label">User ID:</label>
+              <input type="email" class="form-control" id="emailInput" placeholder="">
+            </div>
+
+            <div class="mb-5">
+              <label for="passwordInput" class="form-label">Password:</label>
+              <input type="password" class="form-control" id="passwordInput" placeholder="">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="forgot_password.html" class="btn btn-link">Forgot Password!</a>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JavaScript to display date, time, and random quote + Login handling -->
+  <script>
+    function dt() {
+      const now = new Date();
+      document.getElementById('date').textContent = now.toLocaleDateString();
+      document.getElementById('time').textContent = now.toLocaleTimeString();
+    }
+    setInterval(dt, 1000);
+    dt();
+
+    const quotes = [
+      { text: "When in doubt, go to the library.", author: "J.K. Rowling" },
+      { text: "A library is not a luxury but one of the necessities of life.", author: "Henry Ward Beecher" },
+      { text: "I have always imagined that Paradise will be a kind of library.", author: "Jorge Luis Borges" },
+      { text: "The only thing that you absolutely have to know, is the location of the library.", author: "Albert Einstein" },
+      { text: "A reader lives a thousand lives before he dies.", author: "George R.R. Martin" },
+      { text: "Libraries store the energy that fuels the imagination.", author: "Sidney Sheldon" }
+    ];
+
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    document.getElementById('quote').textContent = `"${randomQuote.text}"`;
+    document.getElementById('author').textContent = `~ ${randomQuote.author}`;
+
+    // LOGIN FUNCTION
+    function validateLogin(event) {
+      event.preventDefault(); // Form normally submit na karein
+
+      const email = document.getElementById('emailInput').value.trim();
+      const password = document.getElementById('passwordInput').value.trim();
+
+      if (email && password) {
+        // Simple check ke dono fields fill kiye gaye hain
+        window.location.href = 'almiras.php'; // Redirect to almiras.php
+      } else {
+        alert('Please fill in both User ID and Password!');
+      }
+    }
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .btn-custom {
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: #333;
+            color: white;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+        .nav-right {
+            display: flex;
+            gap: 15px;
+        }
+        .nav-right a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Library Management System (LMS)</a>
+        <span class="text-white">Welcome: Admin | Email: admin@gmail.com</span>
+        <div class="nav-right">
+            <a href="profile.html">My Profile</a>
+            <a href="logout.html">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <div class="card bg-light">
+                    <div class="card-header">Registered Users</div>
+                    <div class="card-body">
+                        <p class="card-text">Total Users: 30</p>
+                        <a href="#" class="btn btn-custom">View Users</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card bg-light">
+                    <div class="card-header">Total Books</div>
+                    <div class="card-body">
+                        <p class="card-text">Available Books: 25</p>
+                        <a href="#" class="btn btn-custom">View Books</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card bg-light">
+                    <div class="card-header">Book Categories</div>
+                    <div class="card-body">
+                        <p class="card-text">Categories: 5</p>
+                        <a href="#" class="btn btn-custom">View Categories</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card bg-light">
+                    <div class="card-header">Resources</div>
+                    <div class="card-body">
+                        <p class="card-text">Total Resources: 20</p>
+                        <a href="#" class="btn btn-custom">View Resources</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

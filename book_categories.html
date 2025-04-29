@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Categories</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+        .navbar span {
+            color: white;
+        }
+        .nav-right {
+            display: flex;
+            gap: 15px;
+        }
+        .nav-right a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .btn-black {
+            background-color: black;
+            color: white;
+            border: none;
+        }
+        .btn-black:hover {
+            background-color: #333;
+            color: white;
+        }
+        .btn-edit {
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Library Management System (LMS)</a>
+        <span>Welcome: Admin | Email: admin@gmail.com</span>
+        <div class="nav-right">
+            <a href="profile.html">My Profile</a>
+            <a href="logout.html">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h2 class="mb-4">Book Categories</h2>  <!-- Aligned Left -->
+        <button class="btn btn-black mb-3">Add Category</button>
+
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Category Name</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Urdu Literature</td><td>Books related to Urdu fiction, poetry, and history.</td><td><button class="btn btn-success btn-edit">Edit</button> <button class="btn btn-danger">Delete</button></td></tr>
+                <tr><td>Mathematics</td><td>Books covering algebra, calculus, and advanced mathematics.</td><td><button class="btn btn-success btn-edit">Edit</button> <button class="btn btn-danger">Delete</button></td></tr>
+                <tr><td>Information Technology</td><td>Programming, databases, and IT fundamentals.</td><td><button class="btn btn-success btn-edit">Edit</button> <button class="btn btn-danger">Delete</button></td></tr>
+                <tr><td>Economics</td><td>Microeconomics, macroeconomics, and financial studies.</td><td><button class="btn btn-success btn-edit">Edit</button> <button class="btn btn-danger">Delete</button></td></tr>
+                <tr><td>Chemistry</td><td>Organic, inorganic, and physical chemistry.</td><td><button class="btn btn-success btn-edit">Edit</button> <button class="btn btn-danger">Delete</button></td></tr>
+                <tr><td>Physics</td><td>Quantum mechanics, electromagnetism, and applied physics.</td><td><button class="btn btn-success btn-edit">Edit</button> <button class="btn btn-danger">Delete</button></td></tr>
+                <tr><td>History</td><td>Books on historical events, figures, and cultures.</td><td><button class="btn btn-success btn-edit">Edit</button> <button class="btn btn-danger">Delete</button></td></tr>
+                <tr><td>Computer Science</td><td>Programming, data structures, and system design.</td><td><button class="btn btn-success btn-edit">Edit</button> <button class="btn btn-danger">Delete</button></td></tr>
+                <tr><td>Engineering</td><td>Mechanical, electrical, and civil engineering books.</td><td><button class="btn btn-success btn-edit">Edit</button> <button class="btn btn-danger">Delete</button></td></tr>
+                <tr><td>General Knowledge</td><td>Books covering world facts, geography, and trivia.</td><td><button class="btn btn-success btn-edit">Edit</button> <button class="btn btn-danger">Delete</button></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
